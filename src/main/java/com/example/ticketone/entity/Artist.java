@@ -16,6 +16,7 @@ import java.util.Set;
 @Setter
 public class Artist {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
