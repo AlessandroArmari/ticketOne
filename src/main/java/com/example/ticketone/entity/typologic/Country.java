@@ -1,6 +1,7 @@
 package com.example.ticketone.entity.typologic;
 
 import com.example.ticketone.entity.Artist;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,5 +21,6 @@ public class Country {
     private String name;
 
     @OneToOne(mappedBy = "country")
+    @JsonIgnore
     private Artist artist;
 }
