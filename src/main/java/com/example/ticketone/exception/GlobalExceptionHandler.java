@@ -15,4 +15,5 @@ public class GlobalExceptionHandler {
     public Error handleGeneralException(Exception ex, HttpServletRequest request) {
         return new Error("GENERAL_ERROR");
     }
+
 }
