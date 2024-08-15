@@ -1,5 +1,6 @@
 package com.example.ticketone.entity.typologic;
 
+import com.example.ticketone.entity.Artist;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +13,12 @@ import lombok.*;
 public class Country {
 
     @Id
-    @OneToOne(mappedBy = "nation")
-    private String nation;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @OneToOne(mappedBy = "country")
+    private Artist artist;
 }
