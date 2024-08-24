@@ -26,8 +26,8 @@ public class Artist {
     @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
     private Set<Tour> tours;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="country_id", nullable = false)
     private Country country;
 
 

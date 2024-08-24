@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +22,7 @@ public class Country {
     @Column(nullable = false)
     private String name;
 
-    @OneToOne(mappedBy = "country")
+    @OneToMany(mappedBy = "country")
     @JsonIgnore
-    private Artist artist;
+    private Set<Artist> artists;
 }

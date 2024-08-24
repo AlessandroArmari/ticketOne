@@ -18,9 +18,7 @@ public class ArtistService {
     public List<Artist> getAll() {
         try{
 
-            //throw new RuntimeException("");
-            throw new DbHibernateEx("ciao");
-            //return artistRepository.findAll();
+            return artistRepository.findAll();
 
 
         } catch (DataAccessException dbEx) {
