@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 
+import java.sql.Timestamp;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -11,8 +13,10 @@ import org.springframework.http.HttpStatus;
 @Builder
 public class MyError {
 
-    private HttpStatus httpStatus;
+    private String httpStatus;
     private String internalCode;
     private String message;
 
+    private String timestamp;
+    private String classAndLineWhereThrown;
 }
