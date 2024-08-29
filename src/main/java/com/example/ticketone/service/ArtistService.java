@@ -21,7 +21,8 @@ public class ArtistService {
     public List<Artist> getAll() {
         try {
 
-            return artistRepository.findAll();
+            throw new DbHibernateEx("ciao");
+            //return artistRepository.findAll();
 
 
         } catch (DbHibernateEx dbHibEx) {
@@ -30,8 +31,8 @@ public class ArtistService {
             throw new RuntimeException("ciao", runEx);
         }
 
-        //creare messageBuilder
 
-        //creare Logger
+
+        //creare Logger --> sistemare file logger
     }
 }

@@ -3,10 +3,9 @@ package com.example.ticketone.utility.exception;
 import com.example.ticketone.utility.error.MyError;
 import com.example.ticketone.utility.exception.custom.DbHibernateEx;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.dao.DataAccessException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -14,12 +13,16 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(DbHibernateEx.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    //@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<MyError> handleDbHibernateException(DbHibernateEx dbHibEx, HttpServletRequest request) {
+
+        log.error(dbHibEx.getMessage());
+
         return ResponseEntity.internalServerError().body(
                 MyError.builder()
                         .httpStatus(HttpStatus.INTERNAL_SERVER_ERROR.toString())
