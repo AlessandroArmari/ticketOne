@@ -21,7 +21,11 @@ public class ArtistService {
     public List<Artist> getAll() {
         try {
 
-            return artistRepository.findAll();
+            List<Artist> artistList = artistRepository.findAll();
+
+            //artistList.forEach( elem -> elem.getTours().forEach( elem2 -> System.out.println(elem2.getName())));
+
+            return artistList;
 
 
         } catch (DbHibernateEx dbHibEx) {

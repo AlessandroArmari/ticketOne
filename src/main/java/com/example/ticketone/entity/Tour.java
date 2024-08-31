@@ -23,7 +23,7 @@ public class Tour {
     private String year;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="artist_id", nullable = false)
     private Artist artist;
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,5 +25,5 @@ public class Country {
 
     @OneToMany(mappedBy = "country")
     @JsonIgnore
-    private Set<Artist> artists;
+    private List<Artist> artists;
 }

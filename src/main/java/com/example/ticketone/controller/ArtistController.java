@@ -18,7 +18,7 @@ public class ArtistController {
     private final ArtistService artistService;
 
     @GetMapping("get-all-artist")
-    public List<Artist> getAll() throws Exception {
+    public List<Artist> getAll() {
         return artistService.getAll();
     }
 }

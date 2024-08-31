@@ -24,15 +24,11 @@ public class Artist {
     private String name;
 
     //relations
-    @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
-    private Set<Tour> tours;
+    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
+    private List<Tour> tours;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="country_id", nullable = false)
     private Country country;
-
-
-
-
 
 }
