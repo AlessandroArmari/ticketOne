@@ -1,5 +1,6 @@
 package com.example.ticketone.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,9 +16,13 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String year;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="artist_id", nullable = false)
     private Artist artist;

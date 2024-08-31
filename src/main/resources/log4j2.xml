@@ -11,12 +11,11 @@
 
 
     <Appenders>
-        <!-- Console appender configuration -->
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout
-                    pattern="%d{yyyy-MM-dd HH:mm:ss} HO MODIFICATO IL log4j2.xml %-5p %c{1}:%L - %m%n" />
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %highlight{%-5p}{FATAL=red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue, TRACE=cyan} %c{1}, line: %L - %m%n"/>
         </Console>
 
+        <!--
         <RollingFile name="log"
                      fileName="log.log"
                      filePattern="${APP_LOG_ROOT}/app-%d{yyyy-MM-dd}.log">
@@ -28,20 +27,19 @@
                 <TimeBasedTriggeringPolicy interval="1" modulate="true" />
                 <SizeBasedTriggeringPolicy size="10MB" />
             </Policies>
-            <!-- Max 10 files will be created everyday -->
             <DefaultRolloverStrategy max="10">
                 <Delete basePath="${APP_LOG_ROOT}" maxDepth="10">
-                    <!-- Delete all files older than 30 days -->
                     <IfLastModified age="30d" />
                 </Delete>
             </DefaultRolloverStrategy>
         </RollingFile>
+    -->
 
     </Appenders>
     <Loggers>
         <!-- Root logger referring to console appender -->
         <Root level="info" additivity="false">
-            <AppenderRef ref="console" />
+            <AppenderRef ref="console"/>
         </Root>
     </Loggers>
 </Configuration>

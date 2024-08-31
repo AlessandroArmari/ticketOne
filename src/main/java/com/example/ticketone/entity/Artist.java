@@ -1,6 +1,7 @@
 package com.example.ticketone.entity;
 
 import com.example.ticketone.entity.typologic.Country;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
