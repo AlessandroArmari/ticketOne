@@ -9,21 +9,5 @@ import java.util.Map;
 @Service
 public class ArtistSpecificationBuilder extends SpecificationBuilder {
 
-    public Specification<Artist> build(Map<String, String> params) {
 
-        Specification<Artist> specification = Specification.where(null);
-
-        for (String key : params.keySet()) {
-
-            //.equals
-            if (key.contains(".equals"))
-                equalsMethod(key.split("\\.")[0], params.get(key), specification);
-
-            //.like
-            if (key.contains(".like"))
-                likeMethod(key.split("\\.")[0], params.get(key), specification);
-
-        }
-        return specification;
-    }
 }
