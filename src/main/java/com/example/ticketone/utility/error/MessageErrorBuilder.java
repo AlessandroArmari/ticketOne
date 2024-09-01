@@ -11,8 +11,17 @@ import org.springframework.stereotype.Service;
 @Builder
 public class MessageErrorBuilder {
 
-    private final static String DB_HIB_EX = "Error while accessing database";
+    private final static String DB_HIB_EX = "Undefined Error while accessing database";
 
-    public String dbHubEx() {return DB_HIB_EX;}
+    private final static String RUN_TIME_EX = "Undefined Error";
 
+
+    public String dbHubEx() {
+        return DB_HIB_EX;
+    }
+
+    public String runTimeEx() {
+        return RUN_TIME_EX;
+    }
 }
+

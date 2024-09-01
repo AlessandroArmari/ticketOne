@@ -33,10 +33,20 @@ public class GlobalExceptionHandler {
                         .build());
     }
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Error handleGeneralException(Exception ex, HttpServletRequest request) {
-        return new Error("GENERAL_ERROR", ex);
+    public ResponseEntity<MyError> handleRunTimeException(RuntimeException runTimeEx, HttpServletRequest request) {
+
+        log.error(runTimeEx.getMessage());
+
+        return ResponseEntity.internalServerError().body(
+                MyError.builder()
+                        .httpStatus(HttpStatus.INTERNAL_SERVER_ERROR.toString())
+                        .internalCode("codice da definire")
+                        .message(runTimeEx.getMessage())
+                        .timestamp(new Timestamp(System.currentTimeMillis()).toString())
+                        .classAndLineWhereThrown(Arrays.stream(runTimeEx.getStackTrace()).map(elem -> String.format("Class: %s, Line: %s ", elem.getClassName(), elem.getLineNumber())).findFirst().orElse("no StackTrace found"))
+                        .build());
     }
 
 }

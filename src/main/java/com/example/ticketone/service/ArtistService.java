@@ -28,15 +28,20 @@ public class ArtistService {
 
             Page<Artist> artists = artistRepository.findAll(specification, pageable);
 
+
             return artists;
 
 
         } catch (DbHibernateEx dbHibEx) {
             throw new DbHibernateEx(messageErrorBuilder.dbHubEx(), dbHibEx);
         } catch (RuntimeException runEx) {
-            throw new RuntimeException("ciao", runEx);
+            throw new RuntimeException(messageErrorBuilder.runTimeEx(), runEx);
         }
 
+        //aggiungere db
 
+        //vedere perchè non funziona la in()
+
+        //migliorare logger
     }
 }

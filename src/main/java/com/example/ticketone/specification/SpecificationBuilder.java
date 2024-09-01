@@ -2,9 +2,11 @@ package com.example.ticketone.specification;
 
 import com.example.ticketone.entity.Artist;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+@Service
 public class SpecificationBuilder {
 
     public <T> Specification<T> build(Map<String, String> params) {
@@ -32,15 +34,6 @@ public class SpecificationBuilder {
         }
 
         return specification;
-    }
-
-
-    protected Specification<?> equalsMethod(String dbField, String value, Specification<?> specification) {
-        return null;
-    }
-
-    protected void likeMethod(String dbField, String value, Specification<?> specification) {
-
     }
 
 
